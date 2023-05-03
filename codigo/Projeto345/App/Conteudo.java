@@ -90,6 +90,10 @@ abstract public class Conteudo {
         this.genero = genero;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setDataDeLancamento(String dataDeLancamento) {
         this.dataDeLancamento = dataDeLancamento;
     }

@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 import java.util.Map;
 
@@ -64,7 +65,7 @@ class Main {
             System.out.println("Logue antes de acessar esse recurso");
             break;
           }
-          gerenciarF(); // mudar
+          //gerenciarF(); // mudar
           break;
         case 8:
           if (!logado) {
@@ -77,174 +78,6 @@ class Main {
           input.nextLine();
           System.out.print("\nNome do arquivo: ");
           streaming.carregarArquivo(input.nextLine(), tipo);
-          break;
-        default:
-          System.out.println("Código inválido");
-          break;
-      }
-    } while (opcao != 0);
-  }
-
-  public static void filtros(int tipo, int lista) {
-    // tipo = 1 -> filtros de série
-    // tipo = 2 -> filtros de filme
-    // lista = 1 -> lista do cliente
-    // lista = 2 -> lista geral
-    int idioma;
-    int opcao;
-    do {
-      System.out.println("Selecione o filtro desejado.");
-      System.out.println("1 - Idioma");
-      System.out.println("2 - Gênero");
-      System.out.println("3 - Quantidade de episódios");
-      System.out.println("");
-      System.out.println("0 - Sair");
-      System.out.print("\nResposta: ");
-      opcao = input.nextInt();
-      input.nextLine();
-      Serie[] series;
-      switch (opcao) {
-        case 0:
-          System.out.println("Voltando ao menu");
-          break;
-        case 1:
-          System.out.println("Qual idioma você deseja filtrar? ");
-          System.out.println("1 - Inglês");
-          System.out.println("2 - Português");
-          System.out.println("3 - Espanhol");
-          System.out.println("4 - Mandarim");
-          System.out.println("5 - Turco");
-          System.out.print("\nResposta: ");
-          idioma = input.nextInt();
-          input.nextLine();
-          switch (idioma) {
-            case 1:
-              series = new Serie[streaming.series.size()];
-              series = streaming.filtrarPorIdioma("Inglês").allElements(series);
-              if(series.length == 0) {
-                System.out.println("Não existem series neste idioma");
-                break;
-              }
-              for (Serie s : series) {
-                if(s == null){
-                  continue;
-                }
-                System.out.println(s.getNome());
-              }
-              break;
-            case 2:
-              // streaming.filtrarPorIdioma("Português");
-              break;
-            case 3:
-              // streaming.filtrarPorIdioma("Espanhol");
-              break;
-            case 4:
-              // streaming.filtrarPorIdioma("Mandarim");
-              break;
-            case 5:
-              // streaming.filtrarPorIdioma("Turco");
-              break;
-
-          }
-          break;
-        case 2:
-          System.out.println("Qual genero você deseja filtrar? ");
-          System.out.println("1 - Ação");
-          System.out.println("2 - Terror");
-          System.out.println("3 - Comédia");
-          System.out.println("4 - Suspense");
-          System.out.println("5 - Drama");
-          System.out.print("\nResposta: ");
-          idioma = input.nextInt();
-          switch (idioma) {
-            case 1:
-              series = new Serie[streaming.series.size()];
-              series = streaming.filtrarPorGenero("Ação").allElements(series);
-              if(series.lenght == 0) {
-                System.out.println("Não existem series com esse genero");
-                break;
-              }
-              for (Serie s : series) {
-                if(s == null){
-                  break;
-                }
-                System.out.println(s.getNome());
-              }
-              break;
-            case 2:
-              series = new Serie[streaming.series.size()];
-              series = streaming.filtrarPorGenero("Terror").allElements(series);
-              if(series.lenght == 0) {
-                System.out.println("Não existem series com esse genêro");
-                break;
-              }
-              for (Serie s : series) {
-                if(s == null){
-                  break;
-                }
-                System.out.println(s.getNome());
-              }
-              break;
-            case 3:
-                series = new Serie[streaming.series.size()];
-              series = streaming.filtrarPorGenero("Comédia").allElements(series);
-              if(series.lenght == 0) {
-                System.out.println("Não existem series com esse genêro");
-                break;
-              }
-              for (Serie s : series) {
-                if(s == null){
-                  break;
-                }
-                System.out.println(s.getNome());
-              }
-              break;
-            case 4:
-              series = new Serie[streaming.series.size()];
-              series = streaming.filtrarPorGenero("Suspense").allElements(series);
-              if(series.lenght == 0) {
-                System.out.println("Não existem series com esse genêro");
-                break;
-              }
-              for (Serie s : series) {
-                if(s == null){
-                  break;
-                }
-                System.out.println(s.getNome());
-              }
-              break;
-            case 5:
-              series = new Serie[streaming.series.size()];
-              series = streaming.filtrarPorGenero("Drama").allElements(series);
-              if(series.lenght == 0) {
-                System.out.println("Não existem series com esse genêro");
-                break;
-              }
-              for (Serie s : series) {
-                if(s == null){
-                  break;
-                }
-                System.out.println(s.getNome());
-              }
-              break;
-            default:
-              System.out.println("O genêro informado não foi encontrado");
-              break;
-          }
-          break;
-        case 3:
-          System.out.println("Digite a quantidade de episodios ");
-          int numEpisodios = input.nextInt();
-          Serie[] seriesEp = new Serie[streaming.series.size()];
-          seriesEp = streaming.filtrarPorQtdEpisodios(numEpisodios).allElements(seriesEp);
-          for(Serie s : seriesEp){
-            if(s == null){
-              break;
-            }
-            if(s.getQuantidadeEpisodios() == numEpisodios){
-              System.out.println(s.getNome());
-            }
-          }
           break;
         default:
           System.out.println("Código inválido");
@@ -374,17 +207,21 @@ class Main {
           System.out.println("Voltando ao menu");
           break;
         case 1:
-          seriesParaver();
+        
+          filmesParaVer();
           // Séries da lista
           break;
         case 2:
-          seriesJaVistas();
+          filmesJaVistas();
+         
           break;
         case 3:
+          assisteFilme();
           assisteSerie();
           // Assistir
           break;
         case 4:
+          addFPVer();
           addSPVer();
           // Adicionar na lista
           break;
@@ -422,6 +259,13 @@ class Main {
     streaming.getClienteAtual().adicionarNaLista(streaming.series.get(input.nextInt()));
     input.nextLine();
   }
+  
+  public static void addFPVer() {
+	    listarF();
+	    System.out.print("\nId do filme para ver: ");
+	    streaming.getClienteAtual().adicionarFilmeNaLista(streaming.filmes.get(input.nextInt()));
+	    input.nextLine();
+	  }
 
   public static void seriesParaver() {
     System.out.println("Series para ver: ");
@@ -436,6 +280,20 @@ class Main {
     }
   }
 
+  
+  public static void filmesParaVer() {
+    System.out.println("Filmes para ver: ");
+    Cliente atual = streaming.getClienteAtual();
+    Filme[] filmes = new Filme[streaming.filmes.size()];
+    filmes = atual.getListaDeFilmesParaVer().allElements(filmes);
+    for (Filme f : filmes) {
+      if(f == null){
+        break;
+      }
+      System.out.println(f.getId() + " - " + f.getNome());
+    }
+  }
+
   public static void seriesJaVistas() {
     System.out.println("Series ja vistas: ");
     Cliente atual = streaming.getClienteAtual();
@@ -446,6 +304,19 @@ class Main {
         break;
       }
       System.out.println(serie.getId() + " - " + serie.getNome());
+    }
+  }
+
+    public static void filmesJaVistas() {
+    System.out.println("Filmes ja vistas: ");
+    Cliente atual = streaming.getClienteAtual();
+    Filme[] filmes = new Filme[streaming.filmes.size()];
+    filmes = atual.getListaDeFilmesJaVista().allElements(filmes);
+    for (Filme f : filmes) {
+      if(f == null){
+        break;
+      }
+      System.out.println(f.getId() + " - " + f.getNome());
     }
   }
 
@@ -468,6 +339,25 @@ class Main {
    
   }
 
+    public static void assisteFilme() {
+    Cliente atual = streaming.getClienteAtual();
+    filmesParaVer();
+    System.out.print("Id do filme que deseja assistir: ");
+    int idFilme = input.nextInt();
+    input.nextLine();
+    System.out.print("Deseja dar nota para a filme?(S/N) ");
+    char darNota = input.nextLine().charAt(0);
+    if(darNota == 'S'){
+      System.out.print("Nota do filme: ");
+      int nota = input.nextInt();
+      input.nextLine();
+      atual.assitirFilme(streaming.getFilme(idFilme),nota);
+    } else {
+      atual.assitirFilme(streaming.getFilme(idFilme));
+    }
+   
+  }
+
   public static void listarS() {
     System.out.println("\nLista de Series: ");
     for (Map.Entry<Integer, Serie> entry : streaming.series.entrySet()) {
@@ -477,6 +367,16 @@ class Main {
     }
     System.out.println("");
   }
+  
+  public static void listarF() {
+	    System.out.println("\nLista de Series: ");
+	    for (Map.Entry<Integer, Filme> entry : streaming.filmes.entrySet()) {
+	      int key = entry.getKey();
+	      Filme value = entry.getValue();
+	      System.out.println(key + " - " + value.getNome());
+	    }
+	    System.out.println("");
+	  }
 
   public static void listarC() {
     System.out.println("\nLista de Clientes: ");
@@ -490,6 +390,346 @@ class Main {
       System.out.println(key + " - " + value.getLogin() + " Senha: " + value.getSenha());
     }
     System.out.println("");
+  }
+
+  // filtros
+
+  public static void filtros(int tipo, int lista) {
+    // tipo = 1 -> filtros de série
+    // tipo = 2 -> filtros de filme
+    // lista = 1 -> lista do cliente
+    // lista = 2 -> lista geral
+    int idioma;
+    int opcao;
+    if(tipo == 1){ //SÉRIE
+      do {
+        System.out.println("Selecione o filtro desejado.");
+        System.out.println("1 - Idioma");
+        System.out.println("2 - Gênero");
+        System.out.println("3 - Quantidade de episódios");
+        System.out.println("");
+        System.out.println("0 - Sair");
+        System.out.print("\nResposta: ");
+        opcao = input.nextInt();
+        input.nextLine();
+        Serie[] series;
+        series = new Serie[streaming.series.size()];
+        String strIdioma;
+        switch (opcao) {
+          case 0:
+            System.out.println("Voltando ao menu");
+            break;
+          case 1: //SÉRIE POR IDIOMA
+            System.out.println("Qual idioma você deseja filtrar? ");
+            System.out.println("1 - Inglês");
+            System.out.println("2 - Português");
+            System.out.println("3 - Espanhol");
+            System.out.println("4 - Mandarim");
+            System.out.println("5 - Turco");
+            System.out.print("\nResposta: ");
+            idioma = input.nextInt();
+            input.nextLine();
+            switch (idioma) {
+              case 1:
+                strIdioma = "Inglês";
+                break;
+              case 2:
+                strIdioma = "Português";
+                // streaming.filtrarPorIdioma("Português");
+                break;
+              case 3:
+                strIdioma = "Espanhol";
+                // streaming.filtrarPorIdioma("Espanhol");
+                break;
+              case 4:
+                strIdioma = "Mandarim";
+                // streaming.filtrarPorIdioma("Mandarim");
+                break;
+              case 5:
+                strIdioma = "Turco";
+                // streaming.filtrarPorIdioma("Turco");
+                break;
+              default:
+                strIdioma = "Inexistênte";
+                break;
+  
+            }
+            if(lista == 2){ //Lista de todos
+              series = streaming.filtrarPorIdioma(strIdioma).allElements(series);
+            } else { //Lista do cliente atual
+              series = streaming.getClienteAtual().filtrarPorIdioma(strIdioma).allElements(series);
+            }
+            if(series.length == 0) {
+              System.out.println("Não existem series neste idioma");
+              break;
+            }
+            for (Serie s : series) { //display das séries
+              if(s == null){
+                continue;
+              }
+              System.out.println(s.getNome());
+            }
+            break;
+          case 2: //SÉRIE POR GÊNERO
+            System.out.println("Qual genero você deseja filtrar? ");
+            System.out.println("1 - Ação");
+            System.out.println("2 - Terror");
+            System.out.println("3 - Comédia");
+            System.out.println("4 - Suspense");
+            System.out.println("5 - Drama");
+            System.out.print("\nResposta: ");
+            idioma = input.nextInt();
+            switch (idioma) {
+              case 1:
+                series = streaming.filtrarPorGenero("Ação").allElements(series);
+                if(series.length == 0) {
+                  System.out.println("Não existem series com esse genero");
+                  break;
+                }
+                for (Serie s : series) {
+                  if(s == null){
+                    break;
+                  }
+                  System.out.println(s.getNome());
+                }
+                break;
+              case 2:
+                series = streaming.filtrarPorGenero("Terror").allElements(series);
+                if(series.length == 0) {
+                  System.out.println("Não existem series com esse genêro");
+                  break;
+                }
+                for (Serie s : series) {
+                  if(s == null){
+                    break;
+                  }
+                  System.out.println(s.getNome());
+                }
+                break;
+              case 3:
+                series = streaming.filtrarPorGenero("Comédia").allElements(series);
+                if(series.length == 0) {
+                  System.out.println("Não existem series com esse genêro");
+                  break;
+                }
+                for (Serie s : series) {
+                  if(s == null){
+                    break;
+                  }
+                  System.out.println(s.getNome());
+                }
+                break;
+              case 4:
+                series = streaming.filtrarPorGenero("Suspense").allElements(series);
+                if(series.length == 0) {
+                  System.out.println("Não existem series com esse genêro");
+                  break;
+                }
+                for (Serie s : series) {
+                  if(s == null){
+                    break;
+                  }
+                  System.out.println(s.getNome());
+                }
+                break;
+              case 5:
+                series = streaming.filtrarPorGenero("Drama").allElements(series);
+                if(series.length == 0) {
+                  System.out.println("Não existem series com esse genêro");
+                  break;
+                }
+                for (Serie s : series) {
+                  if(s == null){
+                    break;
+                  }
+                  System.out.println(s.getNome());
+                }
+                break;
+              default:
+                System.out.println("O genêro informado não foi encontrado");
+                break;
+            }
+            break;
+          case 3: //SÉRIE POR QUANTIDADE DE EPISÓDIOS
+            System.out.println("Digite a quantidade de episodios ");
+            int numEpisodios = input.nextInt();
+            Serie[] seriesEp = new Serie[streaming.series.size()];
+            seriesEp = streaming.filtrarPorQtdEpisodios(numEpisodios).allElements(seriesEp);
+            for(Serie s : seriesEp){
+              if(s == null){
+                break;
+              }
+              if(s.getQuantidadeEpisodios() == numEpisodios){
+                System.out.println(s.getNome());
+              }
+            }
+            break;
+          default:
+            System.out.println("Código inválido");
+            break;
+        }
+      } while (opcao != 0);
+    } else { //FILMES
+      do {
+        System.out.println("Selecione o filtro desejado.");
+        System.out.println("1 - Idioma");
+        System.out.println("2 - Gênero");
+        System.out.println("3 - Duração");
+        System.out.println("");
+        System.out.println("0 - Sair");
+        System.out.print("\nResposta: ");
+        opcao = input.nextInt();
+        input.nextLine();
+        Filme[] filmes;
+        switch (opcao) {
+          case 0:
+            System.out.println("Voltando ao menu");
+            break;
+          case 1: //FILME POR IDIOMA
+            System.out.println("Qual idioma você deseja filtrar? ");
+            System.out.println("1 - Inglês");
+            System.out.println("2 - Português");
+            System.out.println("3 - Espanhol");
+            System.out.println("4 - Mandarim");
+            System.out.println("5 - Turco");
+            System.out.print("\nResposta: ");
+            idioma = input.nextInt();
+            input.nextLine();
+            switch (idioma) {
+              case 1:
+                filmes = new Filme[streaming.filmes.size()];
+                filmes = streaming.filtrarFilmePorIdioma("Inglês").allElements(filmes);
+                if(filmes.length == 0) {
+                  System.out.println("Não existem filmes neste idioma");
+                  break;
+                }
+                for (Filme f : filmes) {
+                  if(f == null){
+                    continue;
+                  }
+                  System.out.println(f.getNome());
+                }
+                break;
+              case 2:
+                // streaming.filtrarPorIdioma("Português");
+                break;
+              case 3:
+                // streaming.filtrarPorIdioma("Espanhol");
+                break;
+              case 4:
+                // streaming.filtrarPorIdioma("Mandarim");
+                break;
+              case 5:
+                // streaming.filtrarPorIdioma("Turco");
+                break;
+  
+            }
+            break;
+          case 2: //FILME POR GÊNERO
+            System.out.println("Qual genero você deseja filtrar? ");
+            System.out.println("1 - Ação");
+            System.out.println("2 - Terror");
+            System.out.println("3 - Comédia");
+            System.out.println("4 - Suspense");
+            System.out.println("5 - Drama");
+            System.out.print("\nResposta: ");
+            idioma = input.nextInt();
+            switch (idioma) {
+              case 1:
+                filmes = new Filme[streaming.filmes.size()];
+                filmes = streaming.filtrarFilmePorGenero("Ação").allElements(filmes);
+                if(filmes.length == 0) {
+                  System.out.println("Não existem filmes com esse genero");
+                  break;
+                }
+                for (Filme f : filmes) {
+                  if(f == null){
+                    break;
+                  }
+                  System.out.println(f.getNome());
+                }
+                break;
+              case 2:
+            	  filmes = new Filme[streaming.series.size()];
+            	  filmes = streaming.filtrarFilmePorGenero("Terror").allElements(filmes);
+                if(filmes.length == 0) {
+                  System.out.println("Não existem filmes com esse genêro");
+                  break;
+                }
+                for (Filme f : filmes) {
+                  if(f == null){
+                    break;
+                  }
+                  System.out.println(f.getNome());
+                }
+                break;
+              case 3:
+            	  filmes = new Filme[streaming.filmes.size()];
+            	  filmes = streaming.filtrarFilmePorGenero("Comédia").allElements(filmes);
+                if(filmes.length == 0) {
+                  System.out.println("Não existem filmes com esse genêro");
+                  break;
+                }
+                for (Filme f : filmes) {
+                  if(f == null){
+                    break;
+                  }
+                  System.out.println(f.getNome());
+                }
+                break;
+              case 4:
+            	  filmes = new Filme[streaming.filmes.size()];
+            	  filmes = streaming.filtrarFilmePorGenero("Suspense").allElements(filmes);
+                if(filmes.length == 0) {
+                  System.out.println("Não existem filmes com esse genêro");
+                  break;
+                }
+                for (Filme f : filmes) {
+                  if(f == null){
+                    break;
+                  }
+                  System.out.println(f.getNome());
+                }
+                break;
+              case 5:
+            	  filmes = new Filme[streaming.filmes.size()];
+            	  filmes = streaming.filtrarFilmePorGenero("Drama").allElements(filmes);
+                if(filmes.length == 0) {
+                  System.out.println("Não existem filmes com esse genêro");
+                  break;
+                }
+                for (Filme f : filmes) {
+                  if(f == null){
+                    break;
+                  }
+                  System.out.println(f.getNome());
+                }
+                break;
+              default:
+                System.out.println("O genêro informado não foi encontrado");
+                break;
+            }
+            break;
+          case 3: //FILME POR DURAÇÃO
+            System.out.println("Digite a duração desejada(min)");
+            int numEpisodios = input.nextInt();
+            Serie[] seriesEp = new Serie[streaming.series.size()];
+            seriesEp = streaming.filtrarPorQtdEpisodios(numEpisodios).allElements(seriesEp);
+            for(Serie s : seriesEp){
+              if(s == null){
+                break;
+              }
+              if(s.getQuantidadeEpisodios() == numEpisodios){
+                System.out.println(s.getNome());
+              }
+            }
+            break;
+          default:
+            System.out.println("Código inválido");
+            break;
+        }
+      } while (opcao != 0);
+    }
   }
 
 }
