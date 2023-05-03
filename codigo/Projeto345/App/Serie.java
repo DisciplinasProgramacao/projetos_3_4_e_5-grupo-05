@@ -4,11 +4,6 @@ public class Serie extends Conteudo {
 
     private int quantidadeEpisodio;
 
-    public Serie(String nome, String dataDeLancamento, int quantidadeEpisodio) {
-        super(nome, dataDeLancamento);
-        setQuantidadeEpisodios(quantidadeEpisodio);
-    }
-
     public Serie(int id, String nome, String dataDeLancamento) {
         super(id, nome, dataDeLancamento);
         int quantidadeEpisodio = gerador.nextInt(100);
