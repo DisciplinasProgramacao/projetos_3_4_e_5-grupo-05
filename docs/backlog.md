@@ -1,5 +1,5 @@
 | Usuário      | Requisito | Motivação     |Autor     |
-| :----:        |    :----:   |          :----: | |          :----: |
+| :----:        |    :----:   |          :----: |           :----: | 
 | Como um cliente, eu quero  | adicionar conteúdos em uma lista contendo séries  | para assistir mais tarde    | Gabriel Estevão|
 | Como um cliente, eu quero | adicionar conteúdos em uma lista  | para saber o que eu já assisti      | Luiz Gustavo |
 | Como um cliente, eu quero  | realizar buscas em suas listas (por gênero, nome, idiomas, número de episódios ou por duração)   | para assistir um conteúdo que me recomendaram    | Arthur Gomer |
