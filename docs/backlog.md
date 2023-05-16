@@ -3,6 +3,7 @@
 | Como um cliente, eu quero  | adicionar conteúdos em uma lista contendo séries  | para assistir mais tarde    | Gabriel Estevão| Finalizado |
 | Como um cliente, eu quero | adicionar conteúdos em uma lista  | para saber o que eu já assisti      | Luiz Gustavo | Finalizado |
 | Como um cliente, eu quero  | realizar buscas em suas listas (por gênero, nome, idiomas, número de episódios ou por duração)   | para assistir um conteúdo que me recomendaram    | Arthur Gomer | Finalizado |
+| Como um cliente, eu quero  | realizar buscas de conteudos na plataforma (por gênero, nome, idiomas, número de episódios ou por duração)   | para assistir um conteúdo que me recomendaram    | Arthur Gomer | Finalizado |
 | Como um administrador, eu quero   |  visualizar a audiência dos conteúdos       | para saber qual conteúdo é o mais assistido      | Arthur Gomes | Finalizado |
 | Como um administrador, eu quero      | salvar dados de clientes       | para saber quais clientes estão usando a plataforma    | Luiz Gustavo | Finalizado |
 | Como um administrador, eu quero      | salvar dados de conteúdos       | para saber quais conteúdos estão disponíveis para os clientes    | Vitor Nunes | Finalizado |
