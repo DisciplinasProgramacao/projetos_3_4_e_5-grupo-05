@@ -11,7 +11,15 @@
 | Como um administrador, eu quero   | adicionar um novo conteúdo        | para os clientes poderem assistir     | Amanda Moura | Finalizado |
 | Como um administrador, eu quero      | deletar um conteúdo      | para caso o mesmo tenha uma baixa audiência    | Vitor Nunes | Finalizado |
 | Como um cliente eu quero | dar nota a filmes e séries | para poder saber a avalizção dos filmes | Vitor Nunes | Finalizado |
-| Como um cliente especialista eu quero | poder comentar séries e filmes | para justificar minha avaliação | Vitor Nunes | Em andamento |
-| Como administrador eu quero | poder dividir meus clientes entre especialista e regular | para saber quais clientes assistem mais séries | Luiz Gustavo | Em andamento |
+| Como um cliente especialista eu quero | poder comentar séries e filmes | para justificar minha avaliação | Vitor Nunes | Finalizado |
+| Como administrador eu quero | poder dividir meus clientes entre especialista e regular | para saber quais clientes assistem mais séries | Luiz Gustavo | Finalizado |
+| Como um cliente, eu quero | poder filtrar as minhas series por nomes | para encontrar as series de maneira mais facil | Arthur Gomes | Finalizado |
+| Como um cliente, eu quero | poder filtrar as meus filmes por nomes | para encontrar os filmes forma mais facil | Arthur Gomes | Finalizado |
+
+| Como um administrador, eu quero | poder visualizar quais usuarios assistiram o maior numero de conteudos | para analisar os dados | | Não iniciado |
+| Como um administrador, eu quero | poder visualizar quais usuarios avaliaram mais conteudos | para analisar os dados | | Não iniciado |
+| Como um administrador, eu quero | poder visualisar a porcentagem dos clientes com pelo menos 15 avaliações | para analisar os dados | | Não iniciado |
+| Como um administrador, eu quero | poder visualisar os 10 melhores conteudos com pelo menos 100 avaliacções | para analisar a aceitação dos conteudos | | Não iniciado |
+| Como um administrador, eu quero | poder visualisar os 10 conteudos mais vistos da plataforma | para analisar a performance dos conteudos | | Não iniciado |
 
 > Written with [StackEdit](https://stackedit.io/).
