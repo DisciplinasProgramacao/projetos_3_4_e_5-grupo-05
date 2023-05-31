@@ -4,5 +4,5 @@ A documentação do projeto é composta pelos seguintes itens:
  - [Diagramas de classe do projeto (histórico de versões)](/docs/diagramas/) **Obrigatório**
  - [Instruções para uso](/docs/instrucoes.md) **Obrigatório**
  - [Backlog do projeto (requisitos implementados)](/docs/backlog.md) **Opcional**
- - [Link para o vídeo de apresentação (edite este mesmo md para colocar sua URL)](https://youtu.be/5KH8Xp8XIEg) **Somente em caso de apresentação por vídeo**
+ - [Link para o vídeo de apresentação (edite este mesmo md para colocar sua URL)](https://youtu.be/a2C8wFqa5og) **Somente em caso de apresentação por vídeo**
 
