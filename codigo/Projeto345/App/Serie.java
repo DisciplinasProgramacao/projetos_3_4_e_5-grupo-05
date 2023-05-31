@@ -1,3 +1,5 @@
+
+
 import java.util.Random;
 public class Serie extends Conteudo {
     private final static Random gerador = new Random();

@@ -1,3 +1,6 @@
+
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -7,9 +10,11 @@ import java.util.Arrays;
 
 public class PlataformaStreaming {
   private String nome;
+  // public Colection series;
   public Map<Integer, Serie> series;
   public Map<Integer, Filme> filmes;
   public Map<String, Cliente> clientes;
+  public Map<Integer, Avaliacao> avaliacoes;
   private Cliente clienteAtual;
 
   public PlataformaStreaming(String nome) {
@@ -17,8 +22,23 @@ public class PlataformaStreaming {
     this.series = new HashMap<Integer, Serie>();
     this.clientes = new HashMap<String, Cliente>();
     this.filmes = new HashMap<Integer, Filme>();
+    this.avaliacoes = new HashMap<Integer, Avaliacao>();
     this.clienteAtual = null;
   }
+
+  // ======================================================
+  public void adicionarAvaliacao(Avaliacao a) {
+    avaliacoes.put(a.getId(), a);
+  }
+
+  public Avaliacao getAvaliacao(int id) {
+    return avaliacoes.get(id);
+  }
+
+  public Map<Integer, Avaliacao> retornaAvaliacoes() {
+    return avaliacoes;
+  }
+  // ======================================================
 
   public Cliente logar(String login, String senha) {
     this.clienteAtual = null;
@@ -37,13 +57,13 @@ public class PlataformaStreaming {
   public void adicionarSerie(Serie serie) {
     boolean existia = false;
     int id = serie.getId();
-    int idNovo = series.size();
+    int idNovo = serie.getId();
     while (series.get(serie.getId()) != null) {
       existia = true;
       serie.setId(idNovo++);
     }
     if (existia) {
-      System.out.println("Já existia uma série com o id " + id + " ele será mudado para: " + serie.getId());
+      //System.out.println("Já existia uma série com o id " + id + " ele será mudado para: " + serie.getId());
     }
     series.put(serie.getId(), serie);
   }
@@ -104,6 +124,16 @@ public class PlataformaStreaming {
     return listaNova;
   }
 
+  public Lista<Serie> filtrarPorNome(String nome) {
+    Lista<Serie> listaNova = new Lista<Serie>();
+    for (Serie s : this.series.values()) {
+      if (s.getNome() == nome) {
+        listaNova.add(s);
+      }
+    }
+    return listaNova;
+  }
+
   public Lista<Filme> filtrarFilmePorGenero(String genero) {
     Lista<Filme> listaNova = new Lista<>();
     for (Filme f : this.filmes.values()) {
@@ -141,6 +171,78 @@ public class PlataformaStreaming {
 
   public void registrarAudienciaParaFilme(Filme filme) {
     filmes.get(filme.getId()).registrarAudiencia();
+  }
+
+  public Serie[] seriesMaisVistas() {
+    return this.series.values()
+        .stream()
+        .sorted((s1, s2) -> Integer.compare(s2.getAudiencia(), s1.getAudiencia()))
+        .limit(10)
+        .toArray(Serie[]::new);
+  }
+
+    public Serie[] seriesMaisVistasCom100Review() {
+    return this.series.values()
+        .stream()
+        .filter(s -> s.getAvaliacoes().size() > 100)
+        .sorted((s1, s2) -> Integer.compare(s2.getAudiencia(), s1.getAudiencia()))
+        .limit(10)
+        .toArray(Serie[]::new);
+  }
+
+  public Serie[] seriesMaisVistasPorGenero(String genero) {
+    return this.series.values()
+        .stream()
+        .filter(s1 -> s1.getGenero().equals(genero))
+        .sorted((s1, s2) -> Integer.compare(s2.getAudiencia(), s1.getAudiencia()))
+        .limit(10)
+        .toArray(Serie[]::new);
+  }
+
+  public Serie[] seriesMaisVistasPorGeneroCom100Review(String genero) {
+    return this.series.values()
+        .stream()
+        .filter(s -> s.getAvaliacoes().size() > 100)
+        .filter(s1 -> s1.getGenero().equals(genero))
+        .sorted((s1, s2) -> Integer.compare(s2.getAudiencia(), s1.getAudiencia()))
+        .limit(10)
+        .toArray(Serie[]::new);
+  }
+
+  public Filme[] filmesMaisVistos() {
+    return this.filmes.values()
+        .stream()
+        .sorted((s1, s2) -> Integer.compare(s2.getAudiencia(), s1.getAudiencia()))
+        .limit(10)
+        .toArray(Filme[]::new);
+  }
+
+  public Filme[] filmesMaisVistosCom100Review() {
+    return this.filmes.values()
+        .stream()
+        .filter(s -> s.getAvaliacoes().size() > 100)
+        .sorted((s1, s2) -> Integer.compare(s2.getAudiencia(), s1.getAudiencia()))
+        .limit(10)
+        .toArray(Filme[]::new);
+  }
+
+  public Filme[] filmesMaisVistosPorGenero(String genero) {
+    return this.filmes.values()
+        .stream()
+        .filter(s1 -> s1.getGenero().equals(genero))
+        .sorted((s1, s2) -> Integer.compare(s2.getAudiencia(), s1.getAudiencia()))
+        .limit(10)
+        .toArray(Filme[]::new);
+  }
+
+  public Filme[] filmesMaisVistosPorGeneroCom100Review(String genero) {
+    return this.filmes.values()
+        .stream()
+        .filter(s -> s.getAvaliacoes().size() > 100)
+        .filter(s1 -> s1.getGenero().equals(genero))
+        .sorted((s1, s2) -> Integer.compare(s2.getAudiencia(), s1.getAudiencia()))
+        .limit(10)
+        .toArray(Filme[]::new);
   }
 
   public void carregarArquivo(String nomeArquivo, int tipo) {
@@ -211,7 +313,7 @@ public class PlataformaStreaming {
         break;
       case 4:
         while (sc.hasNext()) {
-          if (vez != 0) {
+          if (vez == 0) {
             sc.nextLine();
           } else {
             vez++;
@@ -230,4 +332,131 @@ public class PlataformaStreaming {
     }
   }
 
+  // ====================METODOS DE ADICIONAR INFORMAÇÃO NO
+  // ARQUIVO=======================
+  // =====================================================================================
+  public void salvaCliente(String nome, String password, String username) {
+
+    String conteudo = "\n" + nome + ";" + username + ";" + password;
+
+    try (FileWriter writer = new FileWriter("POO_Series_2023/POO_Espectadores.csv", true)) {
+      writer.write(conteudo);
+      System.out.println("Dados adicionados ao arquivo com sucesso.");
+    } catch (IOException e) {
+      System.out.println("Ocorreu um erro ao adicionar os dados ao arquivo.");
+      e.printStackTrace();
+    }
+
+  }
+
+  // =====================================================================================
+  public void salvaSerie(Serie serie) {
+
+    // String nomeSerie=serie.getNome(), dataSerie=serie.getDataDeLancamento();
+
+    boolean existia = false;
+    int id = serie.getId();
+    int idNovo = serie.getId();
+    while (series.get(serie.getId()) != null) {
+      existia = true;
+      serie.setId(idNovo++);
+    }
+    if (existia) {
+      System.out.println("Já existia uma série com o id " + id + " ele será mudado para: " + serie.getId());
+    }
+
+    String conteudo = "\n" + serie.getId() + ";" + serie.getNome() + ";" + serie.getDataDeLancamento();
+
+    try (FileWriter writer = new FileWriter("POO_Series_2023/POO_Series.csv", true)) {
+      writer.write(conteudo);
+      System.out.println("Dados adicionados ao arquivo com sucesso.");
+    } catch (IOException e) {
+      System.out.println("Ocorreu um erro ao adicionar os dados ao arquivo.");
+      e.printStackTrace();
+    }
+  }
+
+  // =====================================================================================
+  public void salvaFilme(Filme filme) {
+
+    // String nomeSerie=serie.getNome(), dataSerie=serie.getDataDeLancamento();
+
+    boolean existia = false;
+    int id = filme.getId();
+    int idNovo = filme.getId();
+    while (filmes.get(filme.getId()) != null) {
+      existia = true;
+      filme.setId(idNovo++);
+    }
+    if (existia) {
+      System.out.println("Já existia um filme com o id " + id + " ele será mudado para: " + filme.getId());
+    }
+
+    String conteudo = "\n" + filme.getId() + ";" + filme.getNome() + ";" + filme.getDataDeLancamento() + ";"
+        + filme.getDuracao();
+
+    try (FileWriter writer = new FileWriter("POO_Series_2023/POO_Filmes.csv", true)) {
+      writer.write(conteudo);
+      System.out.println("Dados adicionados ao arquivo com sucesso.");
+    } catch (IOException e) {
+      System.out.println("Ocorreu um erro ao adicionar os dados ao arquivo.");
+      e.printStackTrace();
+    }
+  }
 }
+
+  // =======================================================================================
+  // public void visualizarSerieDeMelhoresNotas(){
+  // List<Conteudo> seriesList;
+  // for(Serie s : this.series.values()){
+  // seriesList.add(s);
+  // }
+  // List<Conteudo> melhoresSeries = seriesList.filter((s) -> s.get)
+
+// MODIFICAR
+  // public float pegarMedia(Conteudo c){
+  //   float soma = c.getAvaliacoes().getData().stream()
+  //     .forEach(a -> System.out.println(a));
+  //   return (soma / c.getAvaliacoes().size());
+  // }
+
+//   public Cliente maisMidias(){
+//     Cliente maior;
+    
+//     List<Cliente> clientesList = new List();
+//     Cliente clientes = this.clientes.get(0);
+//       for(Cliente c: this.clientes.values()){
+//         if(c.getListaJaVista.length() + c.getListaDeFilmesParaVer.length()>maior){
+//           maior=c;
+//         }
+//       }
+//   }
+  
+//   public Cliente verClienteMaisAvaliacoes(){
+//     Cliente clienteQueMaisAvaliou = this.clientes.get(0);
+//     List<Cliente> clientesList = new LinkedList<Cliente>(this.clientes.values());
+//     for(Cliente c : clientesList){
+//       if(c.getAvaliacoesFeitas().size() > clienteQueMaisAvaliou.getAvaliacoesFeitas().size()){
+//         clienteQueMaisAvaliou = c;
+//       }
+//     }
+
+//     return clienteQueMaisAvaliou;
+//   }
+
+//   public float verPorcentagemClientes(){
+//     Lista<Cliente> clienteComAvaliacoes = new Lista();
+//     for(Cliente c : this.clientes.keySet()){
+//       if(c.getAvaliacoesFeitas().size() > 15){
+//         clienteComAvaliacoes.add(c);
+//       }
+//     }
+//     float porcentagem = (clienteComAvalicoes.size() * 100) / this.clientes.size();
+//     return porcentagem;
+//   }
+  
+// }
+
+// }
+
+// }

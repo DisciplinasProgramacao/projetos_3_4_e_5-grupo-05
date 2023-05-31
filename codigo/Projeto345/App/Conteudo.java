@@ -1,14 +1,15 @@
+
 import java.util.Random;
 abstract public class Conteudo {
   
   private final static Random gerador = new Random();
-    private final static String[] GENEROS = {
+    public final static String[] GENEROS = {
             "Ação", "Terror", "Comédia",
             "Suspense", "Drama", "Anime",
             "Aventura", "Sci-fy", "Superhero",
-            "Documentario"
+            "Documentario", "Policial", "Romance", "Suspense"
     };
-    private final static String[] IDIOMAS = {
+    public final static String[] IDIOMAS = {
             "Ingles", "Português", "Espanhol",
             "Mandarim", "Turco", "Francês",
             "Russo", "Alemão", "Japonês",
@@ -22,7 +23,9 @@ abstract public class Conteudo {
     protected int audiencia;
     protected int nota;
     protected String dataDeLancamento;
-
+    protected boolean eLancamento;
+    protected Lista<Avaliacao> avaliacoes;
+  
     public Conteudo(int id, String nome, String dataDeLancamento) {
         this.id = id;
         setNome(nome);
@@ -41,6 +44,13 @@ abstract public class Conteudo {
         this.audiencia = 0;
         this.dataDeLancamento = "";
         this.nota = 0;
+        // this.eLancamento = (v) -> {
+        //   v = gerador.nextInt(1);
+        //   if(v != 0)
+        //     return true;
+        //   else
+        //     return false;
+        // }
     }
 
     public int getNota(){
@@ -98,8 +108,16 @@ abstract public class Conteudo {
         this.dataDeLancamento = dataDeLancamento;
     }
 
+    public Lista<Avaliacao> getAvaliacoes(){
+      return this.avaliacoes;
+    }
+    
+    public void setAvaliacoes(Lista<Avaliacao> avaliacoes) {
+        this.avaliacoes = avaliacoes;
+    }
+  
     public void registrarAudiencia() {
         this.audiencia++;
     }
-
+  
 }
