@@ -13,7 +13,7 @@ Na opção de cadastro o usuário deverá informar seu nome, nome de usuário e 
 
 Após a criação da conta o usuário devera selecionar a segunda opção e logar na sua conta, informando apenas nome de usuário e senha. 
 
-Assim que o usuário estiver logado mais 7 opções aparecerão em seu programa, são elas:  3 - Suas Series, 4 - Seus Filmes, 5 - Menu de Trailers , 6 - Gerenciar Series, 7 - Gerenciar Filmes, 8 -Gerenciar Midias, 9- Cadastrar Profissional.
+Assim que o usuário estiver logado mais 7 opções aparecerão em seu programa, são elas:  3 - Suas Series, 4 - Seus Filmes, 5 - Menu de Trailers , 6 - Gerenciar Series, 7 - Gerenciar Filmes, 8 -Relatorio, 9- Cadastrar Profissional.
 
 A opção "suas series" e "seus filmes" levam o usuário a outros menus que permitem ao usuário ver sua lista de conteudos para ver, assim como as sua lista de conteúdo ja visto. O usuário pode também assistir uma serie ou um filme e dar uma nota, podendo optar por dar a nota mais tarde se preciso, aumentando assim a audiência e removendo-a da lista de series para ver. Alem disso ele pode filtrar as series e filmes da sua própria lista ou filtrar para todas as series ou filmes do pograma. Os Filtros disponíveis são idioma, gênero e para filmes duração e para series número de episódios.
 
@@ -25,7 +25,7 @@ Voltando ao menu o usuário pode gerenciar filmes e series, essa opção o levar
 
 Entrando do menu de trailers o usuário poderá criar um novo trailer, inseridno seu nome, id e data de lançamento. Ele poderá também listar os trailers existentes e assistilos porem eles não contam audiência e não podem ser avaliados.
 
-Ao entrar no menu de gerenciar midias o usuário terá diversas opções de filtros para a plataforma, são elas 1 - Dez conteudos mais vistos, 2 - Cem conteudos mais vistos, 3 - Dez conteudos mais vistos por gênero, 4 - Cem conteudos mais vistos por gênero, 5 - Dez conteudos mais bem avaliados, 6 - Cem conteudos mais bem avaliados, 7 - Dez conteudos mais bem avaliados por gênero, 8 - Cem conteudos mais bem avaliados por gênero.
+Ao entrar no menu de relatorio o usuário terá diversas opções de filtros para a plataforma, são elas 1 - Dez conteudos mais vistos, 2 - Cem conteudos mais vistos, 3 - Dez conteudos mais vistos por gênero, 4 - Cem conteudos mais vistos por gênero, 5 - Dez conteudos mais bem avaliados, 6 - Cem conteudos mais bem avaliados, 7 - Dez conteudos mais bem avaliados por gênero, 8 - Cem conteudos mais bem avaliados por gênero.
 
 Os filtros de maiores visualização vão mostrar os 10 ou 100 conteúdos mais vistos da plataforma, porem se o usuário quiser ele pode escolher um gênero especifico para esse filtro.
 Os filtros de mais bem avaliados vão mostrar os 10 ou 100 conteúdos mais bem avaliados da plataforma, prem se o usuário quiser ele pode escolher um gênero especifico para esse filtro.
