@@ -24,12 +24,12 @@
 | Como um administrador, eu quero | poder visualisar os 10 melhores conteudos por genero com pelo menos 100 avaliações | para analisar a aceitação dos conteudos para cada genero | Luiz Gustavo | Finalizado |
 | Como um administrador, eu quero | poder visualisar os 10 conteudos mais vistos da plataforma por genero | para analisar a performance dos conteudos para cada genero | Arthur Gomes | Finalizado |
 | Como um cliente, eu quero | poder avaliar midias na depois de assistir e ver as medias das notas dessa midia  | para classificar o conteúdo de 1 a 5 | Amanda Moura | Finalizado |
-| Como um cliente, eu quero | poder avaliar midias que eu não avaliei na primeira vez que vi | para que eu possa dar a nota mesmo em uma serie ou filme que ja vi| Amanda Moura | Em andamento |
+| Como um cliente, eu quero | poder avaliar midias que eu não avaliei na primeira vez que vi | para que eu possa dar a nota mesmo em uma serie ou filme que ja vi| Amanda Moura | Finalizado |
 | Como administrador, eu quero | garantir que meus clientes não possam avaliar as midias mais de uma vez |para não gerar conflito de notas|  Gabriel Estevão | Finalizado |
-| Como administrador, eu quero | possuir testes que comprovam funcionamento do meu programa | para evitar erros no programa |Arthur Gomes | Em andamento |
+| Como administrador, eu quero | possuir testes que comprovam funcionamento do meu programa | para evitar erros no programa |Arthur Gomes | Finalizado |
 | Como administrador, eu quero | clientes podem ser regulares ou especialistas, e estes últimos podem adicionar comentários à avaliação | para diferenciar os clientes da plataforma | Luiz Gustavo | Finalizado |
-| Como administrador, eu quero | garantir que meu sistema seja modular e robusto | para evitar erros na aplicação | Luiz Gustavo | Em andamento |
-| Como administrador, eu quero | quero que algumas mídias serão marcadas como “Lançamento” e somente os clientes profissionais podem fazer operações com estas mídias | para garantir que apenas profissionais vejam midias novas | Vitor Nunes | Em andamento |
+| Como administrador, eu quero | garantir que meu sistema seja modular e robusto | para evitar erros na aplicação | Luiz Gustavo | Finalizado |
+| Como administrador, eu quero | quero que algumas mídias serão marcadas como “Lançamento” e somente os clientes profissionais podem fazer operações com estas mídias | para garantir que apenas profissionais vejam midias novas | Vitor Nunes | Finalizado |
 
 
 
